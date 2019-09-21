@@ -1,15 +1,21 @@
-from env import env_maze
-from Q_learning import Q_learning
 from sys_args import parse_args
 
 my_args = parse_args()
-
-q = Q_learning(my_args.learning_rate, my_args.gamma, my_args.epsilon)
+if my_args.rl == 'q_learing':
+    from Q_learning import Q_learning
+    q = Q_learning(my_args.learning_rate, my_args.gamma, my_args.epsilon)
+else:
+    raise ValueError('rl没有%s选项！' % my_args.rl)
+if my_args.env == 'maze':
+    from env import env_maze
+    my_env = env_maze
+else:
+    raise ValueError('env没有%s选项' % my_args.env)
 
 def one_epoch():
     start = (0, 0)
     end = (5, 4)
-    env = env_maze(start, end, show_loc=my_args.show_location)
+    env = my_env(start, end, show_loc=my_args.show_location)
     step = 0
     while not env.finish:
         now_loc = env.now_loc

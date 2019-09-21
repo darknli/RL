@@ -12,6 +12,9 @@ def parse_args():
                         default='15', type=int)
     parser.add_argument('--epsilon', help='算法稳定系数', default='0.9', type=float)
     parser.add_argument('--show_location', help='显示每一步位置', default='True', type=bool)
+    parser.add_argument('--rl', help='强化学习算法选择，可选择选项是：q_learning：Q Learning强化学习算法',
+                        default='q_learing', type=str)
+    parser.add_argument('--env', help='环境选择可选择选项是：maze', default='maze', type=str)
 
     args = parser.parse_args()
 
