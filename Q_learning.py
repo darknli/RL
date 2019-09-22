@@ -2,11 +2,12 @@ import numpy as np
 
 
 class Q_learning:
-    def __init__(self, gamma=0.9, lr=0.7, epsilon=0.9):
+    def __init__(self,  lr=0.7, gamma=0.9,epsilon=0.9):
         if not (0 <= lr <= 1 and 0 <= epsilon <= 1):
             raise ValueError("learning rate和epsilonuo应该在0-1之间！")
         self.gamma = gamma
         self.lr = lr
+        print('学习率', lr)
         self.epsilon = epsilon
         self.Q = {}
 

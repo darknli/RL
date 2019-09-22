@@ -26,7 +26,7 @@ def one_epoch():
         step += 1
     print('到达目的地， 用了%d 步'%step)
     # env.show_action()
-    # q.show_Q()
+    q.show_Q()
 
 
 if __name__ == '__main__':
